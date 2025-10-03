@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Stock & Shop",
+    "repo": "StockAndShop",
+    "description": "A shop and stock simulation management game created in Unity with C#.",
+    "image": "/projects/stock-and-shop.png",
+    "tags": ["Unity", "C#", "Game Dev"]
+  },
+  {
+    "name": "Subject To Change",
+    "repo": "SubjectToChange",
+    "description": "A wrestling management simulator inspired by EWR and TEW.",
+    "image": "/projects/STCLogo.png",
+    "tags": ["Unity", "C#", "Simulation"]
+  },
+  {
+    "name": "Encompass Work Tracker",
+    "repo": "encompass-work-tracker",
+    "description": "A work flow tool developed for a UK charity.",
+    "image": "/projects/encompass-work-tracker.png",
+    "tags": ["React", "TypeScript", "GitHub API"]
+  }
+]

@@ -1,0 +1,88 @@
+✅ PHASE 1: FOUNDATION (Complete)
+Task	Status
+Project initialized with Vite & React	✅ Done
+Tailwind + custom colors + fonts	✅ Done
+Folder structure: layouts, pages, components	✅ Done
+GitHub repo with token-auth push & deploy	✅ Done
+GitHub Pages deployed via npm run cnd	✅ Done
+Router setup (now using HashRouter)	✅ Done
+Verified live site + resolved white screen	✅ Done
+
+🔧 PHASE 2: CORE STRUCTURE
+🔲 Layout and Navigation
+ Responsive <Navbar /> with logo + sticky behavior
+
+ <Footer /> with contact/legal and quick links
+
+ Main.jsx layout that wraps all pages
+
+ Add favicon and logo meta tags
+
+🔲 Page Routing via React Router
+ / – Home
+
+ /about – About Parents 1st UK
+
+ /events – Upcoming Events
+
+ /conversations – Community Conversations
+
+ /resources – Useful Resources
+
+ /contact – Contact Page
+
+ 404 Not Found route
+
+🧱 PHASE 3: CONTENT & COMPONENTS
+🔲 Home Page Features
+ Hero section with a call to action
+
+ Rotating coloured <SectionHeader />s (already created)
+
+ Tiles or cards for: Events · Conversations · Resources
+
+ Quote/testimonial area
+
+🔲 Event System
+ Event card component
+
+ Filter by region (Mid Essex, SE Essex, etc.)
+
+ Date ordering + archive logic
+
+🔲 Conversations
+ Searchable post list or tags
+
+ Filter by topic or date
+
+ Option to feature latest 3 on homepage
+
+🎨 PHASE 4: POLISH
+🔲 Visual + UX Polish
+ Framer Motion transitions
+
+ Section divider styling
+
+ Accessibility audit (contrast, keyboard nav)
+
+ Responsive testing (mobile, tablet, desktop)
+
+🌐 PHASE 5: OPTIONAL ENHANCEMENTS
+ Embed Airtable data (if staying with Airtable)
+
+ Admin-only edit mode or CMS-lite option
+
+ User feedback form / anonymous messages
+
+ Deploy with custom domain (parents1st.org.uk or subdomain)
+
+ Setup CI/CD via GitHub Actions (if needed later)
+
+🧭 Suggested Immediate Next Steps:
+You’re currently staged to tackle any of the following:
+
+Navbar & Footer (recommended next step)
+
+Routing for all main pages
+
+Hero + tile layout on homepage

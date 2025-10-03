@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply bg-brand-black text-brand-text font-sans;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+h1, h2, h3, h4 {
+  @apply font-bold text-brand-text;
+}
+
+p {
+  @apply text-brand-subtext;
+}
