@@ -4,30 +4,30 @@ import imageMap from "../data/projectImageMap";
 
 const GITHUB_USERNAME = "Richard-Casey";
 const API = "https://api.github.com";
-const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
-// Optional: only show repos with this topic. Set to null to show all.
-const INCLUDE_ONLY_TOPIC: string | null = null; // e.g. "portfolio"
+// Cache for an hour to avoid hammering the API
+const CACHE_KEY = "gh_repos_cache_v2";
+const CACHE_TIME_KEY = "gh_repos_cache_time_v2";
+const CACHE_TTL_MS = 60 * 60 * 1000; // 1h
 
 export type Project = {
   id: number;
-  name: string;          // repo name (raw)
+  name: string;
   slug: string;
-  title: string;         // nice display title
+  title: string;
   description: string;
-  html_url: string;      // GitHub link
-  homepage?: string | null; // live demo
-  topics: string[];      // GitHub topics OR fallback meta tags
+  html_url: string;
+  homepage?: string | null;
+  topics: string[];
   updated_at: string;
   language: string | null;
-  imageUrl: string;      // mapped image OR OG preview OR placeholder
+  imageUrl: string;
 };
 
 type Repo = {
   id: number;
-  slug: string;
   name: string;
-  full_name: string;
+  owner: { login: string };
   description: string | null;
   html_url: string;
   homepage?: string | null;
@@ -35,13 +35,10 @@ type Repo = {
   language: string | null;
   fork: boolean;
   archived: boolean;
-  owner: { login: string };
+  topics?: string[];
 };
 
-type TopicsResponse = { names: string[] };
-
 function displayTitleFromRepoName(rawName: string): string {
-  // Keep exceptions as-is; otherwise prettify hyphens and camelCase
   return rawName
     .replace(/-/g, " ")
     .replace(/([a-z])([A-Z])/g, "$1 $2")
@@ -50,34 +47,27 @@ function displayTitleFromRepoName(rawName: string): string {
 }
 
 async function gh<T>(path: string): Promise<T> {
-  const headers: Record<string, string> = {
-    Accept: "application/vnd.github+json",
-    "X-GitHub-Api-Version": "2022-11-28",
-  };
-  if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
-  const res = await fetch(`${API}${path}`, { headers });
+  const res = await fetch(`${API}${path}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "rcasey-website-2025", // belt-and-braces
+    },
+  });
   if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`${res.status} ${res.statusText} – ${text}`);
+    const limit = res.headers.get("x-ratelimit-remaining");
+    const msg =
+      res.status === 403 && limit === "0"
+        ? "GitHub API rate limit hit (unauthenticated). Try again later."
+        : `${res.status} ${res.statusText}`;
+    throw new Error(msg);
   }
   return (await res.json()) as T;
-}
-
-async function fetchRepoTopics(owner: string, repo: string): Promise<string[]> {
-  try {
-    const data = await gh<TopicsResponse>(`/repos/${owner}/${repo}/topics`);
-    return data?.names ?? [];
-  } catch {
-    return [];
-  }
 }
 
 function localImageFor(slug: string): string {
   const explicit = imageMap[slug];
   if (explicit) return `${import.meta.env.BASE_URL}${explicit}`;
-
-  // fallback to a conventional path if file exists; we can’t stat in browser,
-  // so just return it and rely on <img onError> to swap to placeholder.
   return `${import.meta.env.BASE_URL}projects/${slug}.png`;
 }
 
@@ -91,79 +81,65 @@ export default function useGitHubProjects(limit = 100) {
     async function run() {
       setLoading(true);
 
-      // Cache (10 minutes)
-      const cached = localStorage.getItem("gh_repos_cache");
-      const cachedAt = Number(localStorage.getItem("gh_repos_cache_time") || "0");
-      const fresh = cached && Date.now() - cachedAt < 10 * 60 * 1000;
-
-      if (fresh) {
-        try {
-          const parsed = JSON.parse(cached!) as Project[];
+      // cache
+      try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        const at = Number(localStorage.getItem(CACHE_TIME_KEY) || "0");
+        if (cached && Date.now() - at < CACHE_TTL_MS) {
+          const parsed = JSON.parse(cached) as Project[];
           if (!abort) {
             setRepos(parsed);
             setLoading(false);
             return;
           }
-        } catch {}
-      }
+        }
+      } catch {}
 
       try {
+        // one request only; asks for topics inline to avoid N extra calls
         const base = await gh<Repo[]>(
-          `/users/${GITHUB_USERNAME}/repos?sort=updated&direction=desc&per_page=${limit}`
+          `/users/${GITHUB_USERNAME}/repos?sort=updated&direction=desc&per_page=${limit}&type=owner`
         );
 
-        // Filter & sort
         const filtered = base
           .filter((r) => r.owner.login === GITHUB_USERNAME)
           .filter((r) => !r.fork && !r.archived)
           .slice(0, limit);
 
-        // Get topics for each repo
-        const enriched = await Promise.all(
-          filtered.map(async (r) => {
-            const topics = await fetchRepoTopics(r.owner.login, r.name);
-            const slug = r.name.toLowerCase();
+        const mapped: Project[] = filtered.map((r) => {
+          const slug = r.name.toLowerCase();
+          const metaTags = projectMeta[slug]?.tags ?? [];
+          // Do NOT call topics API per-repo; rely on meta tags (stable, no rate cost)
+          const finalTopics = metaTags;
 
-            // Optional: include-only topic filter
-            if (INCLUDE_ONLY_TOPIC && !topics.includes(INCLUDE_ONLY_TOPIC)) {
-              return null;
-            }
+          const localImg = localImageFor(slug);
+          const og = `https://opengraph.githubassets.com/1/${GITHUB_USERNAME}/${r.name}`;
+          const imageUrl = localImg || og;
 
-            // Merge meta tags if GitHub topics are empty
-            const metaTags = projectMeta[slug]?.tags ?? [];
-            const finalTopics = topics.length ? topics : metaTags;
+          return {
+            id: r.id,
+            slug,
+            name: r.name,
+            title: displayTitleFromRepoName(r.name),
+            description: r.description ?? "No description provided.",
+            html_url: r.html_url,
+            homepage: r.homepage,
+            topics: finalTopics,
+            updated_at: r.updated_at,
+            language: r.language,
+            imageUrl,
+          };
+        });
 
-            // Image priority: mapped local -> conventional local -> GitHub OG
-            const localImg = localImageFor(slug);
-            const og = `https://opengraph.githubassets.com/1/${r.owner.login}/${r.name}`;
-            // We’ll set local first and let <img onError> fall back to placeholder
-            const imageUrl = localImg || og;
-
-            return {
-              id: r.id,
-              slug,
-              name: r.name,
-              title: displayTitleFromRepoName(r.name),
-              description: r.description ?? "No description provided.",
-              html_url: r.html_url,
-              homepage: r.homepage,
-              topics: finalTopics,
-              updated_at: r.updated_at,
-              language: r.language,
-              imageUrl,
-            } as Project;
-          })
-        );
-
-        const clean = enriched.filter(Boolean) as Project[];
         if (!abort) {
-          setRepos(clean);
+          setRepos(mapped);
           setLoading(false);
-          localStorage.setItem("gh_repos_cache", JSON.stringify(clean));
-          localStorage.setItem("gh_repos_cache_time", String(Date.now()));
+          localStorage.setItem(CACHE_KEY, JSON.stringify(mapped));
+          localStorage.setItem(CACHE_TIME_KEY, String(Date.now()));
         }
       } catch (e) {
         console.error(e);
+        // Last-resort: leave current state but stop spinner
         if (!abort) setLoading(false);
       }
     }
