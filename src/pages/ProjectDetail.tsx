@@ -8,7 +8,6 @@ import projectMeta from "../data/projectMeta";
 /* ---------- helpers ---------- */
 
 const API = "https://api.github.com";
-const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 const OWNER = "Richard-Casey"; // your GitHub username
 
 async function gh<T>(path: string): Promise<T> {
@@ -16,7 +15,6 @@ async function gh<T>(path: string): Promise<T> {
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
   };
-  if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
   const res = await fetch(`${API}${path}`, { headers });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   return (await res.json()) as T;
