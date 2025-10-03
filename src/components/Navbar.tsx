@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <img src="./logo.png" alt="Logo" className="h-8 w-auto" />
           <h1 className="text-brand-text text-lg font-bold py-3">
-            Richard Casey
+            Software & Full-Stack Developer | C# · React · WPF
           </h1>
         </div>
 
