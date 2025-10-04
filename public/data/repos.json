@@ -7,7 +7,7 @@
     "description": "A revamped version of my personal portfolio website.",
     "html_url": "https://github.com/Richard-Casey/rcasey-website-2025",
     "homepage": "",
-    "updated_at": "2025-10-04T10:34:45Z",
+    "updated_at": "2025-10-04T11:01:22Z",
     "language": "TypeScript",
     "topics": [
       "framer-motion",
@@ -213,15 +213,7 @@
     "homepage": "",
     "updated_at": "2025-07-04T11:31:27Z",
     "language": "C#",
-    "topics": [
-      "c-plus-plus",
-      "c-sharp",
-      "coursework",
-      "algorithms",
-      "data-structures",
-      "game-dev",
-      "intro-to-programming"
-    ]
+    "topics": []
   },
   {
     "id": 717195396,
@@ -233,16 +225,7 @@
     "homepage": "",
     "updated_at": "2025-07-04T11:30:17Z",
     "language": "HTML",
-    "topics": [
-      "capstone",
-      "honours-project",
-      "unity",
-      "c-sharp",
-      "coursework",
-      "dissertation",
-      "game-dev",
-      "solo-project"
-    ]
+    "topics": []
   },
   {
     "id": 962049695,
@@ -295,15 +278,7 @@
     "homepage": "",
     "updated_at": "2025-07-04T11:14:47Z",
     "language": "JavaScript",
-    "topics": [
-      "charity",
-      "react",
-      "frontend",
-      "tailwind-css",
-      "microsite",
-      "responsive",
-      "wellbeing"
-    ]
+    "topics": []
   },
   {
     "id": 971648061,
@@ -353,15 +328,7 @@
     "homepage": "",
     "updated_at": "2025-07-04T11:12:30Z",
     "language": "HTML",
-    "topics": [
-      "simulation",
-      "unity",
-      "c-sharp",
-      "dissertation",
-      "game-dev",
-      "inventory-system",
-      "university"
-    ]
+    "topics": []
   },
   {
     "id": 966657592,
@@ -373,13 +340,6 @@
     "homepage": "",
     "updated_at": "2025-07-04T10:35:01Z",
     "language": "JavaScript",
-    "topics": [
-      "frontend",
-      "personal-portfolio",
-      "react",
-      "react-router",
-      "framer-motion",
-      "tailwind-css"
-    ]
+    "topics": []
   }
 ]
