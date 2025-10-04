@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1069373206,
+    "name": "rcasey-website-2025",
+    "slug": "rcasey-website-2025",
+    "title": "Rcasey website 2025",
+    "description": "A revamped version of my personal portfolio website.",
+    "html_url": "https://github.com/Richard-Casey/rcasey-website-2025",
+    "homepage": null,
+    "updated_at": "2025-10-03T21:53:00Z",
+    "language": "TypeScript"
+  },
+  {
+    "id": 1069257305,
+    "name": "subject-to-change",
+    "slug": "subject-to-change",
+    "title": "Subject to change",
+    "description": "A management sim that blends wrestling promotion strategy with the loop and depth of football/championship manager titles. Build your roster, book compelling shows, balance egos and budgets, and grow your brand year after year.",
+    "html_url": "https://github.com/Richard-Casey/subject-to-change",
+    "homepage": "",
+    "updated_at": "2025-10-03T18:12:08Z",
+    "language": "C#"
+  },
+  {
+    "id": 959444303,
+    "name": "Encompass-Work-Tracker",
+    "slug": "encompass-work-tracker",
+    "title": "Encompass Work Tracker",
+    "description": "A modular, multi-window desktop application built in C# using WPF (.xaml) to securely track client cases and contact attempts. Designed as a GDPR-compliant internal tool for charities and care teams, it replaces the need for third-party platforms like Airtable by keeping sensitive data local and structured.",
+    "html_url": "https://github.com/Richard-Casey/Encompass-Work-Tracker",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:38:10Z",
+    "language": "C#"
+  },
+  {
+    "id": 747121924,
+    "name": "Poker-Matic-5000",
+    "slug": "poker-matic-5000",
+    "title": "Poker Matic 5000",
+    "description": "PokerMatic5000 is a C# console application created as part of a technical interview test for Switch Studios, a company specialising in gambling machine development. The goal was to implement a poker hand evaluator that accepts user input (a hand of five cards) and determines the hand ranking (e.g., Pair, Straight, Flush).",
+    "html_url": "https://github.com/Richard-Casey/Poker-Matic-5000",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:37:23Z",
+    "language": "C#"
+  },
+  {
+    "id": 717525681,
+    "name": "First-Person-Grap",
+    "slug": "first-person-grap",
+    "title": "First Person Grap",
+    "description": "This is a personal prototype project exploring the idea of a wrestling-themed game, with an initial focus on simulating the physical structure of a wrestling ring using Unity.  While the gameplay is not developed and the simulation is currently non-functional, this project served as a sandbox to experiment with.",
+    "html_url": "https://github.com/Richard-Casey/First-Person-Grap",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:36:42Z",
+    "language": "C#"
+  },
+  {
+    "id": 717220221,
+    "name": "Codewars-Practice-C-Sharp",
+    "slug": "codewars-practice-c-sharp",
+    "title": "Codewars Practice C Sharp",
+    "description": "This repository contains a small collection of my early attempts at solving Codewars challenges using C#. While short-lived, this repo represents my early interest in sharpening core algorithm and syntax skills outside of my usual game dev work.",
+    "html_url": "https://github.com/Richard-Casey/Codewars-Practice-C-Sharp",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:35:39Z",
+    "language": null
+  },
+  {
+    "id": 412073647,
+    "name": "Testing-Code",
+    "slug": "testing-code",
+    "title": "Testing Code",
+    "description": "This project contains some of my very first experiments with coding — created right after writing my initial \"Hello World\" program. These small wins may seem basic now, but they were a huge step at the time and mark the real start of my journey into software and game development.",
+    "html_url": "https://github.com/Richard-Casey/Testing-Code",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:34:57Z",
+    "language": "C++"
+  },
+  {
+    "id": 547512271,
+    "name": "Coding-Practice",
+    "slug": "coding-practice",
+    "title": "Coding Practice",
+    "description": "This repository contains a collection of basic C++ programs written during the first few weeks of my BSc Games Development degree at the University of Suffolk. The goal was to reinforce lecture content by rewriting and testing concepts like control flow, loops, pointers, and simple I/O.",
+    "html_url": "https://github.com/Richard-Casey/Coding-Practice",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:34:37Z",
+    "language": "C++"
+  },
+  {
+    "id": 424627437,
+    "name": "C-Plus-Plus-Exercises",
+    "slug": "c-plus-plus-exercises",
+    "title": "C Plus Plus Exercises",
+    "description": "This repository contains a variety of small C++ projects and programming exercises I completed outside of formal coursework. Many of these were inspired by coding books, self-imposed challenges, or online programming tasks I encountered during my first and second year of university.",
+    "html_url": "https://github.com/Richard-Casey/C-Plus-Plus-Exercises",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:33:43Z",
+    "language": null
+  },
+  {
+    "id": 589353519,
+    "name": "Beginning-C-Plus-Plus-Through-Game-Programming",
+    "slug": "beginning-c-plus-plus-through-game-programming",
+    "title": "Beginning C Plus Plus Through Game Programming",
+    "description": "Following the book \"Beginning C++ Game Programming\" with various projects including Pong and Timber.",
+    "html_url": "https://github.com/Richard-Casey/Beginning-C-Plus-Plus-Through-Game-Programming",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:33:05Z",
+    "language": "C++"
+  },
+  {
+    "id": 414350028,
+    "name": "Objects-And-Types-Miles-To-Km",
+    "slug": "objects-and-types-miles-to-km",
+    "title": "Objects And Types Miles To Km",
+    "description": "This is a beginner-level C++ project built during my early university studies. It was created to practice using objects, primitive types, and basic user input/output in C++. The project implements a simple miles-to-kilometers converter, using clean code and structured output.",
+    "html_url": "https://github.com/Richard-Casey/Objects-And-Types-Miles-To-Km",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:32:13Z",
+    "language": "C++"
+  },
+  {
+    "id": 717014340,
+    "name": "University-Year-1",
+    "slug": "university-year-1",
+    "title": "University Year 1",
+    "description": "Work completed in my first year attending the University of Suffolk (2021-2022)",
+    "html_url": "https://github.com/Richard-Casey/University-Year-1",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:31:27Z",
+    "language": "C#"
+  },
+  {
+    "id": 717195396,
+    "name": "University-Year-3",
+    "slug": "university-year-3",
+    "title": "University Year 3",
+    "description": "Work completed in my third year attending the University of Suffolk (2023-2024)",
+    "html_url": "https://github.com/Richard-Casey/University-Year-3",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:30:17Z",
+    "language": "HTML"
+  },
+  {
+    "id": 962049695,
+    "name": "Richard-Casey",
+    "slug": "richard-casey",
+    "title": "Richard Casey",
+    "description": "A special README file used for GitHub profiles.",
+    "html_url": "https://github.com/Richard-Casey/Richard-Casey",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:19:14Z",
+    "language": null
+  },
+  {
+    "id": 717071214,
+    "name": "University-Year-2",
+    "slug": "university-year-2",
+    "title": "University Year 2",
+    "description": "Work completed in my second year attending the University of Suffolk (2022-2023)",
+    "html_url": "https://github.com/Richard-Casey/University-Year-2",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:15:53Z",
+    "language": "C"
+  },
+  {
+    "id": 959433828,
+    "name": "The-Other-Half-Hub-Website",
+    "slug": "the-other-half-hub-website",
+    "title": "The Other Half Hub Website",
+    "description": "A responsive, content-rich frontend web application built in React with TailwindCSS. Designed to support parents, fathers, and wellbeing coordinators by providing access to national and local support groups, media resources, and digital wellbeing tools. ",
+    "html_url": "https://github.com/Richard-Casey/The-Other-Half-Hub-Website",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:14:47Z",
+    "language": "JavaScript"
+  },
+  {
+    "id": 971648061,
+    "name": "Pet-System",
+    "slug": "pet-system",
+    "title": "Pet System",
+    "description": "Pet System in C# A simple demo of Interfaces, Abstract Classes, and Polymorphism using pets.",
+    "html_url": "https://github.com/Richard-Casey/Pet-System",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:13:58Z",
+    "language": "C#"
+  },
+  {
+    "id": 971663013,
+    "name": "Chuck-Norris-Fact-Demo",
+    "slug": "chuck-norris-fact-demo",
+    "title": "Chuck Norris Fact Demo",
+    "description": "A C# console demo that uses async/await to fetch and display a random Chuck Norris joke from the internet.",
+    "html_url": "https://github.com/Richard-Casey/Chuck-Norris-Fact-Demo",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:13:17Z",
+    "language": "C#"
+  },
+  {
+    "id": 976709128,
+    "name": "Stock-and-Shop",
+    "slug": "stock-and-shop",
+    "title": "Stock and Shop",
+    "description": "Stock and Shop is a modular, simulation-style retail management game developed in Unity as part of my final-year dissertation project. It was awarded a First Class (73%) and was the department’s official nominee for the 2024 TIGA Awards.",
+    "html_url": "https://github.com/Richard-Casey/Stock-and-Shop",
+    "homepage": "",
+    "updated_at": "2025-07-04T11:12:30Z",
+    "language": "HTML"
+  },
+  {
+    "id": 966657592,
+    "name": "Richard-Casey.co.uk",
+    "slug": "richard-casey.co.uk",
+    "title": "Richard Casey.co.uk",
+    "description": "My personal website Richard-Casey.co.uk - That might even be where your reading this right now!",
+    "html_url": "https://github.com/Richard-Casey/Richard-Casey.co.uk",
+    "homepage": "",
+    "updated_at": "2025-07-04T10:35:01Z",
+    "language": "JavaScript"
+  }
+]
