@@ -8,7 +8,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-70"
       />
 
       {/* Dark overlay to make text readable */}
