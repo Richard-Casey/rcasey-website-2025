@@ -7,8 +7,22 @@
     "description": "A revamped version of my personal portfolio website.",
     "html_url": "https://github.com/Richard-Casey/rcasey-website-2025",
     "homepage": "",
-    "updated_at": "2025-10-04T10:33:50Z",
-    "language": "TypeScript"
+    "updated_at": "2025-10-04T10:34:45Z",
+    "language": "TypeScript",
+    "topics": [
+      "framer-motion",
+      "github-pages",
+      "hash-routing",
+      "markdown",
+      "portfolio-website",
+      "react",
+      "react-router",
+      "single-page-application",
+      "static-site",
+      "tailwindcss",
+      "typescript",
+      "vite"
+    ]
   },
   {
     "id": 1069257305,
@@ -19,7 +33,17 @@
     "html_url": "https://github.com/Richard-Casey/subject-to-change",
     "homepage": "",
     "updated_at": "2025-10-03T18:12:08Z",
-    "language": "C#"
+    "language": "C#",
+    "topics": [
+      "ai",
+      "csharp",
+      "game",
+      "management",
+      "prototype",
+      "simulation",
+      "sports",
+      "unity"
+    ]
   },
   {
     "id": 959444303,
@@ -30,7 +54,17 @@
     "html_url": "https://github.com/Richard-Casey/Encompass-Work-Tracker",
     "homepage": "",
     "updated_at": "2025-07-04T11:38:10Z",
-    "language": "C#"
+    "language": "C#",
+    "topics": [
+      "desktop-app",
+      "productivity",
+      "workflow",
+      "wpf",
+      "c-sharp",
+      "charity",
+      "gdpr",
+      "internal-tool"
+    ]
   },
   {
     "id": 747121924,
@@ -41,7 +75,12 @@
     "html_url": "https://github.com/Richard-Casey/Poker-Matic-5000",
     "homepage": "",
     "updated_at": "2025-07-04T11:37:23Z",
-    "language": "C#"
+    "language": "C#",
+    "topics": [
+      "algorithms",
+      "c-sharp",
+      "console-app"
+    ]
   },
   {
     "id": 717525681,
@@ -52,7 +91,14 @@
     "html_url": "https://github.com/Richard-Casey/First-Person-Grap",
     "homepage": "",
     "updated_at": "2025-07-04T11:36:42Z",
-    "language": "C#"
+    "language": "C#",
+    "topics": [
+      "unity",
+      "c-sharp",
+      "physics-simulation",
+      "procedural-generation",
+      "prototype"
+    ]
   },
   {
     "id": 717220221,
@@ -63,7 +109,14 @@
     "html_url": "https://github.com/Richard-Casey/Codewars-Practice-C-Sharp",
     "homepage": "",
     "updated_at": "2025-07-04T11:35:39Z",
-    "language": null
+    "language": null,
+    "topics": [
+      "algorithms",
+      "beginner",
+      "c-sharp",
+      "console-app",
+      "exercises"
+    ]
   },
   {
     "id": 412073647,
@@ -74,7 +127,12 @@
     "html_url": "https://github.com/Richard-Casey/Testing-Code",
     "homepage": "",
     "updated_at": "2025-07-04T11:34:57Z",
-    "language": "C++"
+    "language": "C++",
+    "topics": [
+      "beginner",
+      "c-plus-plus",
+      "console-app"
+    ]
   },
   {
     "id": 547512271,
@@ -85,7 +143,11 @@
     "html_url": "https://github.com/Richard-Casey/Coding-Practice",
     "homepage": "",
     "updated_at": "2025-07-04T11:34:37Z",
-    "language": "C++"
+    "language": "C++",
+    "topics": [
+      "c-plus-plus",
+      "beginner"
+    ]
   },
   {
     "id": 424627437,
@@ -96,7 +158,14 @@
     "html_url": "https://github.com/Richard-Casey/C-Plus-Plus-Exercises",
     "homepage": "",
     "updated_at": "2025-07-04T11:33:43Z",
-    "language": null
+    "language": null,
+    "topics": [
+      "console-app",
+      "c-plus-plus",
+      "beginner",
+      "data-structures",
+      "exercises"
+    ]
   },
   {
     "id": 589353519,
@@ -107,7 +176,14 @@
     "html_url": "https://github.com/Richard-Casey/Beginning-C-Plus-Plus-Through-Game-Programming",
     "homepage": "",
     "updated_at": "2025-07-04T11:33:05Z",
-    "language": "C++"
+    "language": "C++",
+    "topics": [
+      "beginner",
+      "c-plus-plus",
+      "exercises",
+      "game-dev",
+      "sfml"
+    ]
   },
   {
     "id": 414350028,
@@ -118,7 +194,14 @@
     "html_url": "https://github.com/Richard-Casey/Objects-And-Types-Miles-To-Km",
     "homepage": "",
     "updated_at": "2025-07-04T11:32:13Z",
-    "language": "C++"
+    "language": "C++",
+    "topics": [
+      "beginner",
+      "oop",
+      "c-plus-plus",
+      "console-app",
+      "programming-basics"
+    ]
   },
   {
     "id": 717014340,
@@ -129,7 +212,16 @@
     "html_url": "https://github.com/Richard-Casey/University-Year-1",
     "homepage": "",
     "updated_at": "2025-07-04T11:31:27Z",
-    "language": "C#"
+    "language": "C#",
+    "topics": [
+      "c-plus-plus",
+      "c-sharp",
+      "coursework",
+      "algorithms",
+      "data-structures",
+      "game-dev",
+      "intro-to-programming"
+    ]
   },
   {
     "id": 717195396,
@@ -140,7 +232,17 @@
     "html_url": "https://github.com/Richard-Casey/University-Year-3",
     "homepage": "",
     "updated_at": "2025-07-04T11:30:17Z",
-    "language": "HTML"
+    "language": "HTML",
+    "topics": [
+      "capstone",
+      "honours-project",
+      "unity",
+      "c-sharp",
+      "coursework",
+      "dissertation",
+      "game-dev",
+      "solo-project"
+    ]
   },
   {
     "id": 962049695,
@@ -151,7 +253,16 @@
     "html_url": "https://github.com/Richard-Casey/Richard-Casey",
     "homepage": "",
     "updated_at": "2025-07-04T11:19:14Z",
-    "language": null
+    "language": null,
+    "topics": [
+      "frontend",
+      "portfolio",
+      "react",
+      "developer-profile",
+      "tailwind-css",
+      "javascript",
+      "personal-site"
+    ]
   },
   {
     "id": 717071214,
@@ -162,7 +273,17 @@
     "html_url": "https://github.com/Richard-Casey/University-Year-2",
     "homepage": "",
     "updated_at": "2025-07-04T11:15:53Z",
-    "language": "C"
+    "language": "C",
+    "topics": [
+      "unity",
+      "c-plus-plus",
+      "c-sharp",
+      "coursework",
+      "game-dev",
+      "group-project",
+      "tools-programming",
+      "university"
+    ]
   },
   {
     "id": 959433828,
@@ -173,7 +294,16 @@
     "html_url": "https://github.com/Richard-Casey/The-Other-Half-Hub-Website",
     "homepage": "",
     "updated_at": "2025-07-04T11:14:47Z",
-    "language": "JavaScript"
+    "language": "JavaScript",
+    "topics": [
+      "charity",
+      "react",
+      "frontend",
+      "tailwind-css",
+      "microsite",
+      "responsive",
+      "wellbeing"
+    ]
   },
   {
     "id": 971648061,
@@ -184,7 +314,15 @@
     "html_url": "https://github.com/Richard-Casey/Pet-System",
     "homepage": "",
     "updated_at": "2025-07-04T11:13:58Z",
-    "language": "C#"
+    "language": "C#",
+    "topics": [
+      "c-sharp",
+      "console-app",
+      "interfaces",
+      "oop",
+      "polymorphism",
+      "demo"
+    ]
   },
   {
     "id": 971663013,
@@ -195,7 +333,15 @@
     "html_url": "https://github.com/Richard-Casey/Chuck-Norris-Fact-Demo",
     "homepage": "",
     "updated_at": "2025-07-04T11:13:17Z",
-    "language": "C#"
+    "language": "C#",
+    "topics": [
+      "json",
+      "async-await",
+      "console-app",
+      "c-sharp",
+      "rest-api",
+      "demo"
+    ]
   },
   {
     "id": 976709128,
@@ -206,7 +352,16 @@
     "html_url": "https://github.com/Richard-Casey/Stock-and-Shop",
     "homepage": "",
     "updated_at": "2025-07-04T11:12:30Z",
-    "language": "HTML"
+    "language": "HTML",
+    "topics": [
+      "simulation",
+      "unity",
+      "c-sharp",
+      "dissertation",
+      "game-dev",
+      "inventory-system",
+      "university"
+    ]
   },
   {
     "id": 966657592,
@@ -217,6 +372,14 @@
     "html_url": "https://github.com/Richard-Casey/Richard-Casey.co.uk",
     "homepage": "",
     "updated_at": "2025-07-04T10:35:01Z",
-    "language": "JavaScript"
+    "language": "JavaScript",
+    "topics": [
+      "frontend",
+      "personal-portfolio",
+      "react",
+      "react-router",
+      "framer-motion",
+      "tailwind-css"
+    ]
   }
 ]

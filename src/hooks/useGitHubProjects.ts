@@ -38,6 +38,20 @@ type Repo = {
   topics?: string[];
 };
 
+// Shape we expect in public/data/repos.json (prefetch output)
+type JSONRepo = {
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  homepage?: string | null;
+  updated_at: string;
+  language: string | null;
+  topics?: string[];
+  slug?: string;   // may exist in JSON, but we compute anyway
+  title?: string;  // may exist in JSON, but we compute anyway
+};
+
 function displayTitleFromRepoName(rawName: string): string {
   return rawName
     .replace(/-/g, " ")
@@ -51,7 +65,7 @@ async function gh<T>(path: string): Promise<T> {
     headers: {
       Accept: "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "rcasey-website-2025", // belt-and-braces
+      "User-Agent": "rcasey-website-2025",
     },
   });
   if (!res.ok) {
@@ -71,12 +85,95 @@ function localImageFor(slug: string): string {
   return `${import.meta.env.BASE_URL}projects/${slug}.png`;
 }
 
+function mapToProjectLike(
+  raw: Pick<Repo, "id" | "name" | "description" | "html_url" | "homepage" | "updated_at" | "language"> & { topics?: string[] }
+): Project {
+  const slug = raw.name.toLowerCase();
+  const metaTags = projectMeta[slug]?.tags ?? [];
+  const rawTopics = (raw.topics ?? []).map((t) => t.trim()).filter(Boolean);
+  const finalTopics = rawTopics.length ? rawTopics : metaTags;
+
+  const localImg = localImageFor(slug);
+  const og = `https://opengraph.githubassets.com/1/${GITHUB_USERNAME}/${raw.name}`;
+  const imageUrl = localImg || og;
+
+  return {
+    id: raw.id,
+    slug,
+    name: raw.name,
+    title: displayTitleFromRepoName(raw.name),
+    description: raw.description ?? "No description provided.",
+    html_url: raw.html_url,
+    homepage: raw.homepage,
+    topics: finalTopics,
+    updated_at: raw.updated_at,
+    language: raw.language,
+    imageUrl,
+  };
+}
+
 export default function useGitHubProjects(limit = 100) {
   const [repos, setRepos] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let abort = false;
+
+    async function fromStaticJson(): Promise<Project[] | null> {
+      try {
+        // cache-bust to avoid stale GH Pages/CDN
+        const url = `${import.meta.env.BASE_URL}data/repos.json?ts=${Date.now()}`;
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) return null;
+        const list = (await res.json()) as JSONRepo[];
+        const mapped = list.map((r) =>
+          mapToProjectLike({
+            id: r.id,
+            name: r.name,
+            description: r.description,
+            html_url: r.html_url,
+            homepage: r.homepage,
+            updated_at: r.updated_at,
+            language: r.language,
+            topics: r.topics ?? [],
+          })
+        );
+        return mapped.slice(0, limit);
+      } catch {
+        return null;
+      }
+    }
+
+    async function fromGitHubApi(): Promise<Project[] | null> {
+      try {
+        const base = await gh<Repo[]>(
+          `/users/${GITHUB_USERNAME}/repos?sort=updated&direction=desc&per_page=${limit}&type=owner`
+        );
+
+        const filtered = base
+          .filter((r) => r.owner.login === GITHUB_USERNAME)
+          .filter((r) => !r.fork && !r.archived)
+          .slice(0, limit);
+
+        // NOTE: /users/:user/repos doesn't include topics; we rely on projectMeta for those here.
+        const mapped = filtered.map((r) =>
+          mapToProjectLike({
+            id: r.id,
+            name: r.name,
+            description: r.description,
+            html_url: r.html_url,
+            homepage: r.homepage,
+            updated_at: r.updated_at,
+            language: r.language,
+            topics: r.topics ?? [], // likely empty from this endpoint
+          })
+        );
+
+        return mapped;
+      } catch {
+        return null;
+      }
+    }
 
     async function run() {
       setLoading(true);
@@ -95,52 +192,23 @@ export default function useGitHubProjects(limit = 100) {
         }
       } catch {}
 
-      try {
-        // one request only; asks for topics inline to avoid N extra calls
-        const base = await gh<Repo[]>(
-          `/users/${GITHUB_USERNAME}/repos?sort=updated&direction=desc&per_page=${limit}&type=owner`
-        );
+      // 1) Prefer prebuilt JSON (contains topics)
+      let data = await fromStaticJson();
 
-        const filtered = base
-          .filter((r) => r.owner.login === GITHUB_USERNAME)
-          .filter((r) => !r.fork && !r.archived)
-          .slice(0, limit);
+      // 2) Fallback to GitHub API (topics will come from projectMeta)
+      if (!data || data.length === 0) {
+        data = await fromGitHubApi();
+      }
 
-        const mapped: Project[] = filtered.map((r) => {
-          const slug = r.name.toLowerCase();
-          const metaTags = projectMeta[slug]?.tags ?? [];
-          // Do NOT call topics API per-repo; rely on meta tags (stable, no rate cost)
-          const finalTopics = metaTags;
-
-          const localImg = localImageFor(slug);
-          const og = `https://opengraph.githubassets.com/1/${GITHUB_USERNAME}/${r.name}`;
-          const imageUrl = localImg || og;
-
-          return {
-            id: r.id,
-            slug,
-            name: r.name,
-            title: displayTitleFromRepoName(r.name),
-            description: r.description ?? "No description provided.",
-            html_url: r.html_url,
-            homepage: r.homepage,
-            topics: finalTopics,
-            updated_at: r.updated_at,
-            language: r.language,
-            imageUrl,
-          };
-        });
-
-        if (!abort) {
-          setRepos(mapped);
-          setLoading(false);
-          localStorage.setItem(CACHE_KEY, JSON.stringify(mapped));
+      if (!abort && data) {
+        setRepos(data);
+        setLoading(false);
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify(data));
           localStorage.setItem(CACHE_TIME_KEY, String(Date.now()));
-        }
-      } catch (e) {
-        console.error(e);
-        // Last-resort: leave current state but stop spinner
-        if (!abort) setLoading(false);
+        } catch {}
+      } else if (!abort) {
+        setLoading(false);
       }
     }
 
