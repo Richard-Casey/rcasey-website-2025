@@ -7,7 +7,7 @@
     "description": "A revamped version of my personal portfolio website.",
     "html_url": "https://github.com/Richard-Casey/rcasey-website-2025",
     "homepage": "",
-    "updated_at": "2025-10-05T18:40:36Z",
+    "updated_at": "2025-10-05T18:41:52Z",
     "language": "TypeScript",
     "topics": [
       "framer-motion",
@@ -55,16 +55,7 @@
     "homepage": "",
     "updated_at": "2025-07-04T11:38:10Z",
     "language": "C#",
-    "topics": [
-      "desktop-app",
-      "productivity",
-      "workflow",
-      "wpf",
-      "c-sharp",
-      "charity",
-      "gdpr",
-      "internal-tool"
-    ]
+    "topics": []
   },
   {
     "id": 747121924,
@@ -295,15 +286,7 @@
     "homepage": "",
     "updated_at": "2025-07-04T11:14:47Z",
     "language": "JavaScript",
-    "topics": [
-      "charity",
-      "react",
-      "frontend",
-      "tailwind-css",
-      "microsite",
-      "responsive",
-      "wellbeing"
-    ]
+    "topics": []
   },
   {
     "id": 971648061,
@@ -315,14 +298,7 @@
     "homepage": "",
     "updated_at": "2025-07-04T11:13:58Z",
     "language": "C#",
-    "topics": [
-      "c-sharp",
-      "console-app",
-      "interfaces",
-      "oop",
-      "polymorphism",
-      "demo"
-    ]
+    "topics": []
   },
   {
     "id": 971663013,
